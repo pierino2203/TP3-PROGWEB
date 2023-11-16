@@ -153,8 +153,8 @@ module.exports.moverEmpleado = async function (employee, dpto_no) {
       const mes = fechaActual.getMonth() + 1;
       const anio = fechaActual.getFullYear();
       const fechaFormateada = `${anio}-${mes < 10 ? '0' + mes : mes}-${dia < 10 ? '0' + dia : dia}`;
-      if (rows[0].dpto_no === dpto_no) {
-        return1
+      if (rows[0].dept_no === dpto_no) {
+        return 1
       } else {
         const SQL_UPDATE = `UPDATE dept_emp
         SET to_date = NOW()

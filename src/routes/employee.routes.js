@@ -68,6 +68,7 @@ router.put('/:id/moverempleado',checkEmployee, async (req, res)=>  {
     const isUpdateOk = await DB.Employees.moverEmpleado(employee,dpto_no);
     if(isUpdateOk==1){
         res.status(201).send(`El empleado ${employee.emp_no} ya se encuentra el el departamentor ${dpto_no}`)
+        return
     }
     if(isUpdateOk==0){
         res.status(400).send("El empleado no trabaja actualmente")
