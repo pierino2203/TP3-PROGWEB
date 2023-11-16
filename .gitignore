@@ -1,0 +1,6 @@
+node_modules
+coverage
+.vscode
+.env
+package-lock.json
+respaldo-employees-mariadb.sql
