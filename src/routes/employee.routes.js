@@ -19,18 +19,21 @@ async function checkEmployee(req,res,next){
     res.locals.employe=employe;
     next();
 }
-
+///api/v1/employees/
 router.get('/',async (req,res)=>{
     const deptos = await DB.Employees.getAll();    
     res.status(200).json(deptos)
 });
+///api/v1/employees
 router.get('/:id',checkEmployee,(req,res)=>{
     res.status(200).json(res.locals.employe)
 })
+///api/v1/employees
 router.get('/:id/salary',checkEmployee,async (req,res)=>{
     const employee = await DB.Employees.getActualSalario(res.locals.employe);
     res.status(200).json(employee)
 })
+///api/v1/employees
 router.put('/:id/updateSalary',checkEmployee,async (req,res)=>{
     const {reqSalary} = req.body;
     if(!reqSalary){
@@ -55,6 +58,7 @@ router.put('/:id/updateSalary',checkEmployee,async (req,res)=>{
         return
     }
 })
+///api/v1/employees
 router.put('/:id/moverempleado',checkEmployee, async (req, res)=>  {
     const {dpto_no} =req.body
     const employee = res.locals.employe
